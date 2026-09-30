@@ -1,0 +1,25 @@
+{
+  "name": "simple-portfolio-website",
+  "version": "1.0.0",
+  "description": "Clean and modern personal portfolio website",
+  "main": "src/main.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/style.css -o ./dist/output.css --minify",
+    "watch:css": "tailwindcss -i ./src/style.css -o ./dist/output.css --watch",
+    "start": "serve ."
+  },
+  "keywords": [
+    "portfolio",
+    "tailwindcss",
+    "dark-mode",
+    "vanilla-js"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "serve": "^14.2.4",
+    "tailwindcss": "^3.4.17"
+  }
+}

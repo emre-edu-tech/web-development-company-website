@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-dark-950 text-slate-200 antialiased selection:bg-accent-violet selection:text-white overflow-x-hidden min-h-screen;
+  }
+
+  /* Custom dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090a0f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e243b;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #374151;
+  }
+}
+
+@layer utilities {
+  /* Text gradient helper */
+  .text-gradient-purple {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-indigo-300 to-cyan-400;
+  }
+
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400;
+  }
+
+  .text-gradient-emerald {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400;
+  }
+
+  /* Glassmorphism effects */
+  .glass-header {
+    @apply bg-dark-950/80 backdrop-blur-xl border-b border-slate-800/80;
+  }
+
+  .glass-card {
+    @apply bg-dark-900/60 backdrop-blur-md border border-slate-800/80 rounded-2xl shadow-xl shadow-black/40 transition-all duration-300;
+  }
+
+  .glass-card-hover {
+    @apply hover:border-slate-700/80 hover:bg-dark-850/80 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-1;
+  }
+
+  .glass-pill {
+    @apply bg-slate-900/80 backdrop-blur-md border border-slate-800 text-slate-300 px-3 py-1 rounded-full text-xs font-medium tracking-wide;
+  }
+
+  /* Background grid lines pattern */
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+
+  .bg-dots-pattern {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+/* Scroll reveal utility classes */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cursor typing effect cursor */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-start infinite;
+  @apply text-accent-cyan font-semibold ml-0.5;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
